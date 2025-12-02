@@ -1,16 +1,64 @@
-<!DOCTYPE html>
-
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Form Login 2</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    label { display: block; margin: 8px 0 4px; }
+    input { padding: 6px; width: 300px; }
+    .row { margin-bottom: 10px; }
+    button { margin-top: 12px; padding: 8px 14px; }
+  </style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+  <h2>Form Login 2</h2>
 
+  <form id="myForm">
+    <div class="row">
+      <label for="fname">First Name</label>
+      <input id="fname" name="First Name" type="text" placeholder="John" />
+    </div>
+
+    <div class="row">
+      <label for="lname">Last Name</label>
+      <input id="lname" name="Last Name" type="text" placeholder="Doe" />
+    </div>
+
+    <div class="row">
+      <label for="phone">Phone Number</label>
+      <input id="phone" name="Phone Number" type="tel" placeholder="1234567890" />
+    </div>
+
+    <div class="row">
+      <label for="email">Email ID</label>
+      <input id="email" name="Email ID" type="email" placeholder="john.doe@example.com" />
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById('myForm').addEventListener('submit', function (e) {
+      e.preventDefault(); // stop actual form submission
+
+      // Use form.elements with exact name attributes (including spaces)
+      const f = e.target.elements;
+      const firstName = f['First Name'] ? f['First Name'].value.trim() : '';
+      const lastName  = f['Last Name']  ? f['Last Name'].value.trim()  : '';
+      const phone     = f['Phone Number'] ? f['Phone Number'].value.trim() : '';
+      const email     = f['Email ID'] ? f['Email ID'].value.trim() : '';
+
+      // Build alert string exactly as required, with spaces between entries
+      const alertText = 
+        'First Name: '  + firstName  + ' ' +
+        'Last Name: '   + lastName   + ' ' +
+        'Phone Number: ' + phone     + ' ' +
+        'Email ID: '    + email;
+
+      alert(alertText);
+    });
+  </script>
 </body>
-
 </html>
